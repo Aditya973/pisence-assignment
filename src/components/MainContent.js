@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Day from './Day'
 import Piechart from './Piechart'
 import data from '../data.json';
+import { v4 as uuidv4 } from 'uuid';
 
 const Container = styled.div`
     width: 100vw;
@@ -58,12 +59,14 @@ const BehaviourContainer = styled.div`
     background-color: #d9d9d9;
     height: 100%;
     position: relative;
+    z-index: 25;
     h1 {
         font-size: 25px;
         font-weight: 500;
         letter-spacing: 1px;
         text-align: center;
         padding: 20px 0px;
+        z-index: 30;
     }
 `
 const AnFnContainer = styled.div`
@@ -126,12 +129,10 @@ const Color = styled.div`
     background-color: ${props=> props.bgcolor};
 `
 const MainContent = () => {
-    // console.log(data);
     const attendanceData = data.ATTENDANCE;
     const days = Object.entries(attendanceData);
     const homeworkData = data.homework;
     const behaviorData = data['Behavioral Analytics']
-    console.log(behaviorData);
   return (
     <Container>
         <Greeting>HELLO! {data.NAME}</Greeting>
@@ -144,7 +145,7 @@ const MainContent = () => {
                 </AnFnContainer>
                 {
                     days.map((item)=>{
-                        return <Day name = {item[0]} data = {item[1]}/>
+                        return <Day name = {item[0]} data = {item[1]} key = {uuidv4()}/>
                     })
                 }
             </AttendenceContainer>
@@ -154,7 +155,7 @@ const MainContent = () => {
                     <SubjectContainer>
                         {
                             homeworkData.map((item)=>{
-                                return <Subject>{item.toUpperCase()}</Subject>
+                                return <Subject key = {uuidv4()}>{item.toUpperCase()}</Subject>
                             })
                         }
                     </SubjectContainer>

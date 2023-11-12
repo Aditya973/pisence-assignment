@@ -21,10 +21,24 @@ const Container = styled.div`
         width: 7px;
         background-color: white;
         border: 1px solid black;
+        z-index: 10;
     }
+    `
+const Line = styled.section`
+    width: 20px;
+    z-index: 4;
+    height: 1px;
+    background-color: black;
+    position: absolute;
+    transform: translateX(${props=>props.x}px) translateY(${props=>props.y}px) rotate(-${props=>props.percent}deg);
 `
-
-const Piechart = ({data}) => {
+const Text = styled.span`
+    position: absolute;
+    transform: translateX(${props=>props.x}px) translateY(${props=>props.y}px);
+    font-size: 12px;
+    color: green;
+`
+const Piechart = ({data}) => { 
     let goodct = 0;
     data.forEach((item)=>{
         if(item === "good"){
@@ -35,6 +49,10 @@ const Piechart = ({data}) => {
   return (
     <Container goodpercent = {goodpercent}>
         <div/>
+        <Line percent = {goodpercent} x = {50} y = {-70}/>
+        <Text x = {60} y = {-70}>{goodct}</Text>
+        <Line percent = {goodpercent} x = {-50} y = {70}/>
+        <Text x = {-60} y = {70}>{data.length - goodct}</Text>
     </Container>
     )
 }
