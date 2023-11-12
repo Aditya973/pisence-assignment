@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pisence-assignment/static/css/main.ed039d71.css",
+    "main.js": "/pisence-assignment/static/js/main.56a71126.js",
+    "index.html": "/pisence-assignment/index.html",
+    "main.ed039d71.css.map": "/pisence-assignment/static/css/main.ed039d71.css.map",
+    "main.56a71126.js.map": "/pisence-assignment/static/js/main.56a71126.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ed039d71.css",
+    "static/js/main.56a71126.js"
+  ]
+}
