@@ -50,9 +50,9 @@ const Piechart = ({data}) => {
     <Container goodpercent = {goodpercent}>
         <div/>
         <Line percent = {goodpercent} x = {50} y = {-70}/>
-        <Text x = {60} y = {-70}>{goodct}</Text>
+        <Text x = {60} y = {-70}>{data.length - goodct}</Text>
         <Line percent = {goodpercent} x = {-50} y = {70}/>
-        <Text x = {-60} y = {70}>{data.length - goodct}</Text>
+        <Text x = {-60} y = {70}>{goodct}</Text>
     </Container>
     )
 }
